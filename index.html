@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tangent - A Variable Font System</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Scroll progress indicator
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('.section');
+            const menuLineWrappers = document.querySelectorAll('.menu-line-wrapper');
+            const menuLines = document.querySelectorAll('.menu-line');
+
+            // Group sections by their main category
+            const sectionGroups = [
+                [0], // Hero
+                [1, 2, 3], // Transformation (intro + axes + specimen)
+                [4, 5, 6, 7], // Connection (intro + keyboard + glyphset + typing)
+                [8, 9, 10], // Generation (intro + processing + posters)
+                [11, 12, 13, 14], // Variability (intro + alphabet + axes + typing)
+                [15, 16, 17, 18, 19], // Specimen (intro + 3 versions + context)
+                [20, 21] // Download + specs
+            ];
+
+            function updateProgress() {
+                const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+                let currentGroup = 0;
+                sections.forEach((section, index) => {
+                    const sectionTop = section.offsetTop;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                        // Find which group this section belongs to
+                        sectionGroups.forEach((group, groupIndex) => {
+                            if (group.includes(index)) {
+                                currentGroup = groupIndex;
+                            }
+                        });
+                    }
+                });
+
+                // Update active state
+                menuLines.forEach((line, i) => {
+                    if (i === currentGroup) {
+                        line.classList.add('active');
+                    } else {
+                        line.classList.remove('active');
+                    }
+                });
+            }
+
+            // Click to scroll to section
+            menuLineWrappers.forEach((wrapper, index) => {
+                wrapper.addEventListener('click', function () {
+                    const targetSectionIndex = sectionGroups[index][0];
+                    const targetSection = sections[targetSectionIndex];
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            window.addEventListener('scroll', updateProgress);
+            updateProgress(); // Initial call
+        });
+    </script>
+</head>
+
+<body>
+
+    <!-- FIXED NAVIGATION -->
+    <div class="meta-line">Transforming through Transmission</div>
+    <div class="nav"><a href="#download">Download</a></div>
+    <div class="menu-lines">
+        <div class="menu-line-wrapper" data-section="0">
+            <div class="menu-line"></div>
+            <div class="section-title-tooltip">Back to Top</div>
+        </div>
+        <div class="menu-line-wrapper" data-section="1">
+            <div class="menu-line"></div>
+            <div class="section-title-tooltip">Transformation</div>
+        </div>
+        <div class="menu-line-wrapper" data-section="2">
+            <div class="menu-line"></div>
+            <div class="section-title-tooltip">Connection</div>
+        </div>
+        <div class="menu-line-wrapper" data-section="3">
+            <div class="menu-line"></div>
+            <div class="section-title-tooltip">Generation</div>
+        </div>
+        <div class="menu-line-wrapper" data-section="4">
+            <div class="menu-line"></div>
+            <div class="section-title-tooltip">Variability</div>
+        </div>
+        <div class="menu-line-wrapper" data-section="5">
+            <div class="menu-line"></div>
+            <div class="section-title-tooltip">Specimen</div>
+        </div>
+        <div class="menu-line-wrapper" data-section="6">
+            <div class="menu-line"></div>
+            <div class="section-title-tooltip">Download</div>
+        </div>
+    </div>
+
+    <!-- [1] HERO -->
+    <section class="section bg-green">
+        <div class="centered-layout">
+            <h1 class="hero-title">Tangent</h1>
+            <p class="section-subtitle">
+                A variable font system exploring transformation through transmission
+            </p>
+            <div class="letter-cards">
+                <div class="letter-card">
+                    <div class="letter-slot" data-index="0">
+                        <div class="letter-reel">
+                            <div class="letter-item">F</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="letter-card">
+                    <div class="letter-slot" data-index="1">
+                        <div class="letter-reel">
+                            <div class="letter-item">O</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="letter-card">
+                    <div class="letter-slot" data-index="2">
+                        <div class="letter-reel">
+                            <div class="letter-item">R</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="letter-card">
+                    <div class="letter-slot" data-index="3">
+                        <div class="letter-reel">
+                            <div class="letter-item">M</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- [2] TRANSFORMATION INTRO -->
+    <section class="section bg-light-yellow">
+        <div class="centered-layout">
+            <div class="section-label">[2] TRANSFORMATION</div>
+            <h2 class="section-title">Four Axes of Change</h2>
+            <p class="section-subtitle">
+                Weight, contrast, construction, and twist create a system where glyphs continuously evolve. Each axis
+                transforms the character of the letterforms, enabling infinite variation within a single typeface.
+            </p>
+        </div>
+    </section>
+
+    <!-- [2a] AXIS GRID -->
+    <section class="section tall bg-white">
+        <div class="centered-layout">
+            <div class="axis-grid">
+                <div class="axis-card">
+                    <div class="axis-visual">Animation<br>Thin → Bold</div>
+                    <div class="axis-label">Weight</div>
+                    <div class="axis-range">100—900</div>
+                </div>
+                <div class="axis-card">
+                    <div class="axis-visual">Animation<br>Low → High</div>
+                    <div class="axis-label">Contrast</div>
+                    <div class="axis-range">0—100</div>
+                </div>
+                <div class="axis-card">
+                    <div class="axis-visual">Animation<br>Round → Sharp</div>
+                    <div class="axis-label">Construction</div>
+                    <div class="axis-range">0—100</div>
+                </div>
+                <div class="axis-card">
+                    <div class="axis-visual">Animation<br>0° → 360°</div>
+                    <div class="axis-label">Twist</div>
+                    <div class="axis-range">0—100</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- [2b] FULL SPECIMEN -->
+    <section class="section full-height bg-periwinkle">
+        <div class="wireframe-box full">
+            <div style="font-size: 14px;">
+                <strong>LARGE INTERACTIVE SPECIMEN</strong><br><br>
+                Full-width display showing all axes in combination<br>
+                Continuously morphs through variable space
+            </div>
+        </div>
+    </section>
+
+    <!-- [3] CONNECTION INTRO -->
+    <section class="section bg-light-yellow">
+        <div class="split-layout">
+            <div>
+                <div class="section-label">[3] CONNECTION</div>
+                <h2 class="section-title">Pattern Generation</h2>
+                <p class="body-text">
+                    Each glyph connects to its neighbor through a modular component system. The typeface functions as a
+                    pattern-making tool, generating endless interconnected pathways.
+                </p>
+            </div>
+            <div class="wireframe-box medium">
+                Sample Pattern<br>Animation
+            </div>
+        </div>
+    </section>
+
+    <!-- [3a] KEYBOARD MAPPING -->
+    <section class="section bg-white">
+        <div class="centered-layout">
+            <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 40px;">Keyboard Mapping</h3>
+            <div class="wireframe-box large">
+                <strong>KEYBOARD DIAGRAM</strong><br><br>
+                Visual layout showing key-to-glyph mapping<br><br>
+                "To insert these characters in your text,<br>
+                select 'Tangent' font, size 20/20 point"
+            </div>
+        </div>
+    </section>
+
+    <!-- [3b] PATTERN GLYPHSET -->
+    <section class="section full-height bg-light-yellow">
+        <div class="wireframe-box full">
+            <div style="font-size: 14px;">
+                <strong>COMPLETE PATTERN GLYPHSET</strong><br><br>
+                Grid showing all pattern-generating glyphs<br>
+                Organized by component type
+            </div>
+        </div>
+    </section>
+
+    <!-- [3c] LIVE TYPING -->
+    <section class="section bg-light-yellow">
+        <div class="centered-layout">
+            <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 40px;">Try It Yourself</h3>
+            <div class="wireframe-box large">
+                <strong>LIVE TYPING INTERFACE</strong><br><br>
+                Interactive text input<br>
+                Type to see patterns form in real-time
+            </div>
+        </div>
+    </section>
+
+    <!-- [4] GENERATION INTRO -->
+    <section class="section bg-white">
+        <div class="centered-layout">
+            <div class="section-label">[4] GENERATION</div>
+            <h2 class="section-title">Endless Permutations</h2>
+            <p class="section-subtitle">
+                Interactive tools for creating complex pathway systems. Click, drag, and generate infinite variations.
+            </p>
+        </div>
+    </section>
+
+    <!-- [4a] PROCESSING SKETCH -->
+    <section class="section full-height bg-dark">
+        <div class="wireframe-box full">
+            <div style="font-size: 14px; color: #f5f3ed;">
+                <strong>PROCESSING SKETCH IFRAME</strong><br><br>
+                Full viewport interactive experience<br>
+                Click and drag to create pathways
+            </div>
+        </div>
+    </section>
+
+    <!-- [4b] ANIMATED POSTERS -->
+    <section class="section bg-light-yellow">
+        <div style="width: 100%; max-width: 1300px;">
+            <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 60px; text-align: center;">
+                Generated Compositions
+            </h3>
+            <div class="poster-grid">
+                <div class="poster-box">Animated Poster 1</div>
+                <div class="poster-box">Animated Poster 2</div>
+                <div class="poster-box">Animated Poster 3</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- [5] VARIABILITY INTRO -->
+    <section class="section bg-coral">
+        <div class="split-layout">
+            <div class="wireframe-box medium">
+                Alphabet<br>Animation
+            </div>
+            <div>
+                <div class="section-label">[5] VARIABILITY</div>
+                <h2 class="section-title">Letterforms in Motion</h2>
+                <p class="body-text">
+                    Traditional letterforms that inherit the same variable system. Characters transform through weight,
+                    contrast, construction, and twist.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- [5a] ALPHABET DISPLAY -->
+    <section class="section full-height bg-light-yellow">
+        <div class="wireframe-box full">
+            <div style="font-size: 14px;">
+                <strong>COMPLETE ALPHABET</strong><br><br>
+                A—Z display
+            </div>
+        </div>
+    </section>
+
+    <!-- [5b] AXIS DEMONSTRATIONS -->
+    <section class="section tall bg-white">
+        <div class="centered-layout">
+            <div class="wireframe-box large" style="max-width: 900px; margin: 0 auto;">
+                <strong>AXIS ANIMATION SEQUENCE</strong><br><br>
+                Text specimen cycling through each axis
+            </div>
+        </div>
+    </section>
+
+    <!-- [5c] LIVE TYPING WITH CONTROLS -->
+    <section class="section bg-light-yellow">
+        <div class="centered-layout">
+            <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 40px;">Type to Explore</h3>
+            <div class="wireframe-box large">
+                <strong>INTERACTIVE TYPING + SLIDERS</strong><br><br>
+                Text input field<br>
+                Live axis controls (4 sliders)
+            </div>
+        </div>
+    </section>
+
+    <!-- [6] SPECIMEN INTRO -->
+    <section class="section bg-periwinkle">
+        <div class="centered-layout">
+            <div class="section-label">[6] SPECIMEN</div>
+            <h2 class="section-title">Three Voices</h2>
+            <p class="section-subtitle">
+                Tangent comes in three distinct versions, each with complete character sets for different applications.
+            </p>
+        </div>
+    </section>
+
+    <!-- [6a] TANGENT FORM -->
+    <section class="section bg-light-yellow">
+        <div class="split-layout">
+            <div>
+                <h3 style="font-size: 32px; font-weight: 600; margin-bottom: 20px;">Tangent Form</h3>
+                <p class="body-text">
+                    Pattern-generating glyphs<br>
+                    500+ topological configurations<br>
+                    Modular component system
+                </p>
+            </div>
+            <div class="wireframe-box large">Form Glyphset</div>
+        </div>
+    </section>
+
+    <!-- [6b] TANGENT MONO -->
+    <section class="section bg-white">
+        <div class="split-layout">
+            <div class="wireframe-box large">Mono Character Set</div>
+            <div>
+                <h3 style="font-size: 32px; font-weight: 600; margin-bottom: 20px;">Tangent Mono</h3>
+                <p class="body-text">
+                    Monospaced letterset<br>
+                    Complete Latin extended<br>
+                    Numbers, punctuation
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- [6c] TANGENT SANS -->
+    <section class="section bg-light-yellow">
+        <div class="split-layout">
+            <div>
+                <h3 style="font-size: 32px; font-weight: 600; margin-bottom: 20px;">Tangent Sans</h3>
+                <p class="body-text">
+                    Proportional letterset<br>
+                    Complete Latin extended<br>
+                    Numbers, punctuation
+                </p>
+            </div>
+            <div class="wireframe-box large">Sans Character Set</div>
+        </div>
+    </section>
+
+    <!-- [6d] IN CONTEXT -->
+    <section class="section bg-yellow">
+        <div style="width: 100%; max-width: 1300px;">
+            <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 60px; text-align: center;">In Context</h3>
+            <div class="specimen-row">
+                <div class="specimen-col">
+                    <div class="wireframe-box large">Specimen Text<br>Tangent Mono</div>
+                </div>
+                <div class="specimen-col">
+                    <div class="wireframe-box large">Specimen Text<br>Tangent Sans</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- [7] DOWNLOAD -->
+    <section id="download" class="section compact bg-light-yellow">
+        <div style="width: 100%; max-width: 1300px;">
+            <div style="text-align: center; margin-bottom: 80px;">
+                <div class="section-label">[7] DOWNLOAD</div>
+                <h2 class="section-title">Get Tangent</h2>
+                <p class="section-subtitle">
+                    Available in three versions. Download the complete variable font family.
+                </p>
+            </div>
+
+            <div class="download-grid">
+                <div class="download-card">
+                    <div class="download-title">Tangent Form</div>
+                    <div class="download-desc">
+                        Pattern-generating glyphs<br>
+                        500+ configurations<br>
+                        4 variable axes
+                    </div>
+                    <a href="#" class="btn">Download</a>
+                </div>
+
+                <div class="download-card">
+                    <div class="download-title">Tangent Mono</div>
+                    <div class="download-desc">
+                        Monospaced letterset<br>
+                        Complete character set<br>
+                        4 variable axes
+                    </div>
+                    <a href="#" class="btn">Download</a>
+                </div>
+
+                <div class="download-card">
+                    <div class="download-title">Tangent Sans</div>
+                    <div class="download-desc">
+                        Proportional letterset<br>
+                        Complete character set<br>
+                        4 variable axes
+                    </div>
+                    <a href="#" class="btn">Download</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECS -->
+    <section class="section compact bg-white">
+        <div class="specs-layout">
+            <div class="specs-column">
+                <h3>Technical Specs</h3>
+                <ul>
+                    <li>Format: OpenType Variable Font</li>
+                    <li>Axes: 4 (Radius, Twist, Weight, Amplitude)</li>
+                    <li>Radius: 100–900</li>
+                    <li>Twist: 0–100</li>
+                    <li>Weight: 0–100</li>
+                    <li>Amplitude: 0–100</li>
+                    <li>Glyphs: 50+</li>
+                    <li>Character Set: Latin</li>
+                </ul>
+            </div>
+
+            <div class="specs-column">
+                <h3>Credits & Info</h3>
+                <ul>
+                    <li>Designers: Deborah Khodanovich → <a href="https://dvorit.ca">dvorit.ca</a><br></li>
+                    <li>Designer: Saachi Mehta → <a href="https://saachimehta.work/">saachimehta.work</a></li>
+                    <li></li>
+                    <li>Year: 2025-2026</li>
+                    <li>License: Open Font License</li>
+                    <li>Recommended size: 20pt+</li>
+                    <li>Made with support from Kelsey Elder</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div class="footer bg-white">
+        <p>© 2025 TANGENT VARIABLE FONT</p>
+    </div>
+
+
+    <script>
+        const letterSets = [
+            { letters: ['F', 'O', 'R', 'M'] },
+            { letters: ['S', 'A', 'N', 'S'] },
+            { letters: ['M', 'O', 'N', 'O'] }
+        ];
+
+        const allLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+        let currentSetIndex = 0;
+        let isSpinning = false;
+
+        function getRandomLetter() {
+            return allLetters[Math.floor(Math.random() * allLetters.length)];
+        }
+
+        function spinSingleSlot(slot, targetLetter, delay) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    const reel = slot.querySelector('.letter-reel');
+                    const numRandomLetters = 16;
+                    const letterHeight = 144;
+                    const gap = 80; // Add the gap value
+                    const totalLetterSpace = letterHeight + gap; // Total space per letter
+
+                    // Build the reel with 16 random + target
+                    reel.innerHTML = '';
+                    for (let i = 0; i < numRandomLetters; i++) {
+                        const div = document.createElement('div');
+                        div.className = 'letter-item';
+                        div.textContent = getRandomLetter();
+                        reel.appendChild(div);
+                    }
+
+                    const target = document.createElement('div');
+                    target.className = 'letter-item';
+                    target.textContent = targetLetter;
+                    reel.appendChild(target);
+
+                    // Reset: position so FIRST letter is centered
+                    reel.classList.remove('spinning');
+                    reel.style.transition = 'none';
+                    reel.style.top = `calc(50% - 72px)`; // Center the first letter
+
+                    void reel.offsetHeight;
+
+                    // Animate: move up so LAST letter (target) is centered
+                    setTimeout(() => {
+                        reel.classList.add('spinning');
+                        reel.style.transition = 'top 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                        // Move up by 16 letters, accounting for gaps
+                        reel.style.top = `calc(50% - 72px - ${numRandomLetters * totalLetterSpace}px)`;
+
+                        setTimeout(() => {
+                            reel.classList.remove('spinning');
+                            resolve();
+                        }, 1500);
+                    }, 50);
+
+                }, delay);
+            });
+        }
+
+        async function spinSlots() {
+            if (isSpinning) return;
+            isSpinning = true;
+
+            const slots = document.querySelectorAll('.letter-slot');
+            currentSetIndex = (currentSetIndex + 1) % letterSets.length;
+            const currentSet = letterSets[currentSetIndex];
+
+            const spinPromises = [];
+            slots.forEach((slot, index) => {
+                spinPromises.push(spinSingleSlot(slot, currentSet.letters[index], index * 150));
+            });
+
+            await Promise.all(spinPromises);
+            isSpinning = false;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                spinSlots();
+                setInterval(spinSlots, 5000);
+            }, 3000);
+        });
+    </script>
+
+</body>
+
+</html>
