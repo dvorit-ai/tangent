@@ -168,50 +168,39 @@
             <div class="axis-grid">
                 <div class="axis-card">
                     <div class="axis-visual">
-                        <div class="axis-text" id="twist-text">qwe<br>asd<br>zxc</div>
+                        <video autoplay loop muted>
+                            <source src="videos/Tangent_Twist.mp4" type="video/mp4">
+                        </video>
                     </div>
                     <div class="axis-label">Twist</div>
-                    <div class="axis-controls">
-                        <button class="play-btn" id="twist-play">▶</button>
-                        <input type="range" min="0" max="100" value="0" class="axis-slider" id="twist-slider">
-                    </div>
-                    <div class="axis-range"><span id="twist-value">0</span></div>
+                    <div class="axis-range">0—100</div>
                 </div>
-
                 <div class="axis-card">
                     <div class="axis-visual">
-                        <div class="axis-text" id="radius-text">qwe<br>asd<br>zxc</div>
+                        <video autoplay loop muted>
+                            <source src="videos/Tangent_Radius.mp4" type="video/mp4">
+                        </video>
                     </div>
                     <div class="axis-label">Radius</div>
-                    <div class="axis-controls">
-                        <button class="play-btn" id="radius-play">▶</button>
-                        <input type="range" min="0" max="100" value="0" class="axis-slider" id="radius-slider">
-                    </div>
-                    <div class="axis-range"><span id="radius-value">0</span></div>
+                    <div class="axis-range">0—100</div>
                 </div>
-
                 <div class="axis-card">
                     <div class="axis-visual">
-                        <div class="axis-text" id="weight-text">qwe<br>asd<br>zxc</div>
+                        <video autoplay loop muted>
+                            <source src="videos/Tangent_Weight.mp4" type="video/mp4">
+                        </video>
                     </div>
                     <div class="axis-label">Weight</div>
-                    <div class="axis-controls">                    
-                        <button class="play-btn" id="weight-play">▶</button>
-                        <input type="range" min="0" max="100" value="0" class="axis-slider" id="weight-slider">
-                    </div>
-                    <div class="axis-range"><span id="weight-value">0</span></div>
+                    <div class="axis-range">0—100</div>
                 </div>
-
                 <div class="axis-card">
                     <div class="axis-visual">
-                        <div class="axis-text" id="amplitude-text">qwe<br>asd<br>zxc</div>
+                        <video autoplay loop muted>
+                            <source src="videos/Tangent_Amp.mp4" type="video/mp4">
+                        </video>
                     </div>
                     <div class="axis-label">Amplitude</div>
-                    <div class="axis-controls">
-                        <button class="play-btn" id="amplitude-play">▶</button>
-                        <input type="range" min="0" max="100" value="0" class="axis-slider" id="amplitude-slider">
-                    </div>
-                    <div class="axis-range"><span id="amplitude-value">0</span></div>
+                    <div class="axis-range">0—100</div>
                 </div>
             </div>
         </div>
@@ -605,125 +594,6 @@
                 setInterval(spinSlots, 5000);
             }, 3000);
         });
-
-        // Variable font axis controls with play/pause
-document.addEventListener('DOMContentLoaded', () => {
-    const axes = [
-    {
-        name: 'twist',
-        slider: document.getElementById('twist-slider'),
-        text: document.getElementById('twist-text'),
-        value: document.getElementById('twist-value'),
-        playBtn: document.getElementById('twist-play'),
-        updateFn: (val) => `"TWST" ${val}, "RDUS" 100, "wght" 50, "AMPT" 0`,
-        isPlaying: false,
-        direction: 1,
-        currentValue: 0  // Matches value="0" in HTML
-    },
-    {
-        name: 'radius',
-        slider: document.getElementById('radius-slider'),
-        text: document.getElementById('radius-text'),
-        value: document.getElementById('radius-value'),
-        playBtn: document.getElementById('radius-play'),
-        updateFn: (val) => `"TWST" 0, "RDUS" ${val}, "wght" 50, "AMPT" 0`,
-        isPlaying: false,
-        direction: 1,
-        currentValue: 0  // Matches value="0" in HTML
-    },
-    {
-        name: 'weight',
-        slider: document.getElementById('weight-slider'),
-        text: document.getElementById('weight-text'),
-        value: document.getElementById('weight-value'),
-        playBtn: document.getElementById('weight-play'),
-        updateFn: (val) => `"TWST" 0, "RDUS" 100, "wght" ${val}, "AMPT" 0`,
-        isPlaying: false,
-        direction: 1,
-        currentValue: 0  // Matches value="0" in HTML
-    },
-    {
-        name: 'amplitude',
-        slider: document.getElementById('amplitude-slider'),
-        text: document.getElementById('amplitude-text'),
-        value: document.getElementById('amplitude-value'),
-        playBtn: document.getElementById('amplitude-play'),
-        updateFn: (val) => `"TWST" 0, "RDUS" 100, "wght" 0, "AMPT" ${val}`,
-        isPlaying: false,
-        direction: 1,
-        currentValue: 0  // Matches value="0" in HTML
-    }
-];
-
-    function animateLoop() {
-    axes.forEach(axis => {
-        if (!axis.isPlaying) return;
-
-        // Add easing factor
-        const distanceFromEdge = axis.direction === 1 ? (100 - axis.currentValue) : axis.currentValue;
-        const easeFactor = Math.max(0.7, Math.min(1, distanceFromEdge / 20)); // Slow down near edges
-        
-        axis.currentValue += axis.direction * 3 * easeFactor;
-
-        // Bounce at ends
-        if (axis.currentValue >= 100) {
-            axis.currentValue = 100;
-            axis.direction = -1;
-        } else if (axis.currentValue <= 0) {
-            axis.currentValue = 0;
-            axis.direction = 1;
-        }
-
-        axis.slider.value = axis.currentValue;
-        axis.value.textContent = Math.round(axis.currentValue);
-        axis.text.style.fontVariationSettings = axis.updateFn(axis.currentValue);
-    });
-
-    requestAnimationFrame(animateLoop);
-}
-
-    function stopAnimation(axis) {
-        axis.isPlaying = false;
-        axis.playBtn.textContent = '▶';
-        axis.playBtn.classList.remove('playing');
-    }
-
-    function startAnimation(axis) {
-        axis.isPlaying = true;
-        axis.playBtn.textContent = '⏸';
-        axis.playBtn.classList.add('playing');
-    }
-
-    axes.forEach(axis => {
-        // Play/pause button
-        axis.playBtn.addEventListener('click', () => {
-            if (axis.isPlaying) {
-                stopAnimation(axis);
-            } else {
-                startAnimation(axis);
-            }
-        });
-
-        // Slider input - pause on interaction
-        axis.slider.addEventListener('mousedown', () => {
-            stopAnimation(axis);
-        });
-
-        axis.slider.addEventListener('input', (e) => {
-            const value = parseFloat(e.target.value);
-            axis.currentValue = value;
-            axis.value.textContent = Math.round(value);
-            axis.text.style.fontVariationSettings = axis.updateFn(value);
-        });
-
-        // Initialize
-        axis.text.style.fontVariationSettings = axis.updateFn(axis.currentValue);
-        startAnimation(axis);
-    });
-
-    // Start the animation loop
-    animateLoop();
-});
 
     </script>
 
