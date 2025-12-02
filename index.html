@@ -146,39 +146,60 @@
     </section>
 
     <!-- [2] TRANSFORMATION INTRO -->
-    <section class="section bg-light-yellow">
+    <!-- <section class="section bg-light-yellow">
         <div class="centered-layout">
-            <div class="section-label">[2] TRANSFORMATION</div>
-            <h2 class="section-title">Four Axes of Change</h2>
+            <h2 class="section-title">4 Axes</h2>
             <p class="section-subtitle">
-                Weight, contrast, construction, and twist create a system where glyphs continuously evolve. Each axis
-                transforms the character of the letterforms, enabling infinite variation within a single typeface.
+                Radius, twist, weight, and amplitude create a system where glyphs continuously evolve. Each axis transforms the character of the letterforms, enabling infinite variation within a single typeface.
             </p>
         </div>
-    </section>
+    </section> -->
 
     <!-- [2a] AXIS GRID -->
     <section class="section tall bg-white">
         <div class="centered-layout">
+            <div class="section-text">
+                <h2 class="section-title">4 Axes</h2>
+                <p class="section-subtitle">
+                    Radius, twist, weight, and amplitude create a system where glyphs continuously evolve. Each axis
+                    transforms the character of the letterforms, enabling infinite variation within a single typeface.
+                </p>
+            </div>
             <div class="axis-grid">
                 <div class="axis-card">
-                    <div class="axis-visual">Animation<br>Thin → Bold</div>
-                    <div class="axis-label">Weight</div>
-                    <div class="axis-range">100—900</div>
-                </div>
-                <div class="axis-card">
-                    <div class="axis-visual">Animation<br>Low → High</div>
-                    <div class="axis-label">Contrast</div>
-                    <div class="axis-range">0—100</div>
-                </div>
-                <div class="axis-card">
-                    <div class="axis-visual">Animation<br>Round → Sharp</div>
-                    <div class="axis-label">Construction</div>
-                    <div class="axis-range">0—100</div>
-                </div>
-                <div class="axis-card">
-                    <div class="axis-visual">Animation<br>0° → 360°</div>
+                    <div class="axis-visual">
+                        <video autoplay loop muted>
+                            <source src="videos/Tangent_Twist.mp4" type="video/mp4">
+                        </video>
+                    </div>
                     <div class="axis-label">Twist</div>
+                    <div class="axis-range">0—100</div>
+                </div>
+                <div class="axis-card">
+                    <div class="axis-visual">
+                        <video autoplay loop muted>
+                            <source src="videos/Tangent_Radius.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="axis-label">Radius</div>
+                    <div class="axis-range">0—100</div>
+                </div>
+                <div class="axis-card">
+                    <div class="axis-visual">
+                        <video autoplay loop muted>
+                            <source src="videos/Tangent_Weight.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="axis-label">Weight</div>
+                    <div class="axis-range">0—100</div>
+                </div>
+                <div class="axis-card">
+                    <div class="axis-visual">
+                        <video autoplay loop muted>
+                            <source src="videos/Tangent_Amp.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="axis-label">Amplitude</div>
                     <div class="axis-range">0—100</div>
                 </div>
             </div>
@@ -573,6 +594,7 @@
                 setInterval(spinSlots, 5000);
             }, 3000);
         });
+
     </script>
 
 </body>
