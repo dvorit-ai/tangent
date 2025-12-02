@@ -16,8 +16,8 @@
             // Group sections by their main category
             const sectionGroups = [
                 [0], // Hero
-                [1, 2, 3], // Transformation (intro + axes + specimen)
-                [4, 5, 6, 7], // Connection (intro + keyboard + glyphset + typing)
+                [1, 2], // Transformation (intro + axes + specimen)
+                [3, 4, 5, 6, 7], // Connection (intro + keyboard + glyphset + typing)
                 [8, 9, 10], // Generation (intro + processing + posters)
                 [11, 12, 13, 14], // Variability (intro + alphabet + axes + typing)
                 [15, 16, 17, 18, 19], // Specimen (intro + 3 versions + context)
@@ -81,7 +81,7 @@
         </div>
         <div class="menu-line-wrapper" data-section="1">
             <div class="menu-line"></div>
-            <div class="section-title-tooltip">Transformation</div>
+            <div class="section-title-tooltip">Four Axes</div>
         </div>
         <div class="menu-line-wrapper" data-section="2">
             <div class="menu-line"></div>
@@ -156,10 +156,10 @@
     </section> -->
 
     <!-- [2a] AXIS GRID -->
-    <section class="section tall bg-white">
+    <section class="section tall bg-linen">
         <div class="centered-layout">
             <div class="section-text">
-                <h2 class="section-title">4 Axes</h2>
+                <h2 class="section-title">Four Axes</h2>
                 <p class="section-subtitle">
                     Radius, twist, weight, and amplitude create a system where glyphs continuously evolve. Each axis
                     transforms the character of the letterforms, enabling infinite variation within a single typeface.
@@ -218,23 +218,18 @@
     </section>
 
     <!-- [2b] FULL SPECIMEN -->
-    <section class="section full-height bg-periwinkle">
-        <div class="wireframe-box full">
-            <div style="font-size: 14px;">
-                <strong>LARGE INTERACTIVE SPECIMEN</strong><br><br>
-                Full-width display showing all axes in combination<br>
-                Continuously morphs through variable space
-            </div>
-        </div>
+    <section class="section full-height bg-white">
+        <video id="fullposter-1" loop autoplay muted>
+                <source src="videos/FullPoster_1.mp4" type="video/mp4">
+            </video>
     </section>
 
     <!-- [3] CONNECTION INTRO -->
     <section class="section bg-light-yellow">
         <div class="split-layout">
             <div>
-                <div class="section-label">[3] CONNECTION</div>
-                <h2 class="section-title">Pattern Generation</h2>
-                <p class="body-text">
+                <h2 class="section-title">Building Paths</h2>
+                <p class="section-subtitle">
                     Each glyph connects to its neighbor through a modular component system. The typeface functions as a
                     pattern-making tool, generating endless interconnected pathways.
                 </p>
@@ -246,7 +241,7 @@
     </section>
 
     <!-- [3a] KEYBOARD MAPPING -->
-    <section class="section bg-white">
+    <section class="section bg-linen">
         <div class="centered-layout">
             <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 40px;">Keyboard Mapping</h3>
             <div class="wireframe-box large">
@@ -282,7 +277,7 @@
     </section>
 
     <!-- [4] GENERATION INTRO -->
-    <section class="section bg-white">
+    <section class="section bg-linen">
         <div class="centered-layout">
             <div class="section-label">[4] GENERATION</div>
             <h2 class="section-title">Endless Permutations</h2>
@@ -345,7 +340,7 @@
     </section>
 
     <!-- [5b] AXIS DEMONSTRATIONS -->
-    <section class="section tall bg-white">
+    <section class="section tall bg-linen">
         <div class="centered-layout">
             <div class="wireframe-box large" style="max-width: 900px; margin: 0 auto;">
                 <strong>AXIS ANIMATION SEQUENCE</strong><br><br>
@@ -393,7 +388,7 @@
     </section>
 
     <!-- [6b] TANGENT MONO -->
-    <section class="section bg-white">
+    <section class="section bg-linen">
         <div class="split-layout">
             <div class="wireframe-box large">Mono Character Set</div>
             <div>
@@ -483,7 +478,7 @@
     </section>
 
     <!-- SPECS -->
-    <section class="section compact bg-white">
+    <section class="section compact bg-linen">
         <div class="specs-layout">
             <div class="specs-column">
                 <h3>Technical Specs</h3>
@@ -515,16 +510,16 @@
     </section>
 
     <!-- FOOTER -->
-    <div class="footer bg-white">
+    <div class="footer bg-linen">
         <p>© 2025 TANGENT VARIABLE FONT</p>
     </div>
 
 
     <script>
         const letterSets = [
+            { letters: ['M', 'O', 'N', 'O'] },
             { letters: ['F', 'O', 'R', 'M'] },
-            { letters: ['S', 'A', 'N', 'S'] },
-            { letters: ['M', 'O', 'N', 'O'] }
+            { letters: ['S', 'A', 'N', 'S'] }
         ];
 
         const allLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
@@ -600,11 +595,12 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                spinSlots();
-                setInterval(spinSlots, 5000);
-            }, 3000);
-        });
+    // Start spinning immediately on load
+    spinSlots();
+    
+    // Then continue spinning every 5 seconds
+    setInterval(spinSlots, 3000);
+});
 
         // Variable font axis controls with play/pause
 document.addEventListener('DOMContentLoaded', () => {
@@ -663,7 +659,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const distanceFromEdge = axis.direction === 1 ? (100 - axis.currentValue) : axis.currentValue;
         const easeFactor = Math.max(0.7, Math.min(1, distanceFromEdge / 20)); // Slow down near edges
         
-        axis.currentValue += axis.direction * 3 * easeFactor;
+        axis.currentValue += axis.direction * 1 * easeFactor;
 
         // Bounce at ends
         if (axis.currentValue >= 100) {
