@@ -195,7 +195,7 @@
                         <div class="axis-text" id="weight-text">qwe<br>asd<br>zxc</div>
                     </div>
                     <div class="axis-label">Weight</div>
-                    <div class="axis-controls">                    
+                    <div class="axis-controls">
                         <button class="play-btn" id="weight-play">▶</button>
                         <input type="range" min="0" max="100" value="0" class="axis-slider" id="weight-slider">
                     </div>
@@ -220,8 +220,8 @@
     <!-- [2b] FULL SPECIMEN -->
     <section class="section full-height bg-white">
         <video id="fullposter-1" loop autoplay muted>
-                <source src="videos/FullPoster_1.mp4" type="video/mp4">
-            </video>
+            <source src="videos/FullPoster_1.mp4" type="video/mp4">
+        </video>
     </section>
 
     <!-- [3] CONNECTION INTRO -->
@@ -240,13 +240,13 @@
         </div>
     </section>
 
-   <!-- [3a] KEYBOARD MAPPING -->
+    <!-- [3a] KEYBOARD MAPPING -->
     <section class="section bg-white">
         <div class="centered-layout">
             <div class="section-text">
                 <h3>How to Type</h3>
                 <p class="section-subtitle">
-                To insert these characters in your text, <br>select "Tangent Form" font, size 20/20pt
+                    To insert these characters in your text, <br>select "Tangent Form" font, size 20/20pt
                 </p>
             </div>
             <div class="keyboard-container">
@@ -376,25 +376,135 @@
         </div>
     </section>
 
-    <!-- [3b] PATTERN GLYPHSET -->
-    <!-- <section class="section full-height bg-light-yellow">
-        <div class="wireframe-box full">
-            <div style="font-size: 14px;">
-                <strong>COMPLETE PATTERN GLYPHSET</strong><br><br>
-                Grid showing all pattern-generating glyphs<br>
-                Organized by component type
-            </div>
-        </div>
-    </section> -->
-
     <!-- [3c] LIVE TYPING -->
     <section class="section bg-light-yellow">
-        <div class="centered-layout">
-            <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 40px;">Try It Yourself</h3>
-            <div class="wireframe-box large">
-                <strong>LIVE TYPING INTERFACE</strong><br><br>
-                Interactive text input<br>
-                Type to see patterns form in real-time
+        <div class="centered-layout" id="testing-ground">
+            <div class="try-it-container">
+                <!-- Left side: Canvas/Text display -->
+                <div class="canvas-container">
+                    <div class="canvas-text" id="canvas-text" contenteditable="true" spellcheck="false">qwer</div>
+                </div>
+
+                <!-- Right side: Controls -->
+                <div class="controls-panel">
+
+                    <!-- Mini keyboard legend -->
+                    <div class="control-section">
+                        <div class="mini-keyboard">
+                            <!-- Row 2 -->
+                            <div class="mini-keyboard-row">
+                                <div class="mini-key has-glyph"><span class="mini-key-label">Q</span><span
+                                        class="mini-glyph">q</span></div>
+                                <div class="mini-key has-glyph"><span class="mini-key-label">W</span><span
+                                        class="mini-glyph">w</span></div>
+                                <div class="mini-key has-glyph"><span class="mini-key-label">E</span><span
+                                        class="mini-glyph">e</span></div>
+                                <div class="mini-key"><span class="mini-key-label">R</span></div>
+                                <div class="mini-key has-glyph"><span class="mini-key-label">T</span><span
+                                        class="mini-glyph">t</span></div>
+                                <div class="mini-key"><span class="mini-key-label">Y</span></div>
+                                <div class="mini-key has-glyph"><span class="mini-key-label">U</span><span
+                                        class="mini-glyph">u</span></div>
+                                <div class="mini-key has-glyph"><span class="mini-key-label">I</span><span
+                                        class="mini-glyph">i</span></div>
+                                <div class="mini-key has-glyph"><span class="mini-key-label">O</span><span
+                                        class="mini-glyph">o</span></div>
+                                <div class="mini-key"><span class="mini-key-label">P</span></div>
+                            </div>
+                            <!-- Row 3 -->
+                            <div class="mini-keyboard-row">
+                                <div class="mini-key has-glyph"><span class="mini-key-label">A</span><span
+                                        class="mini-glyph">a</span></div>
+                                <div class="mini-key has-glyph"><span class="mini-key-label">S</span><span
+                                        class="mini-glyph">s</span></div>
+                                <div class="mini-key has-glyph"><span class="mini-key-label">D</span><span
+                                        class="mini-glyph">d</span></div>
+                                <div class="mini-key"><span class="mini-key-label">F</span></div>
+                                <div class="mini-key has-glyph"><span class="mini-key-label">G</span><span
+                                        class="mini-glyph">g</span></div>
+                                <div class="mini-key"><span class="mini-key-label">H</span></div>
+                                <div class="mini-key has-glyph"><span class="mini-key-label">J</span><span
+                                        class="mini-glyph">j</span></div>
+                                <div class="mini-key has-glyph"><span class="mini-key-label">K</span><span
+                                        class="mini-glyph">k</span></div>
+                                <div class="mini-key has-glyph"><span class="mini-key-label">L</span><span
+                                        class="mini-glyph">l</span></div>
+                                <div class="mini-key"><span class="mini-key-label">;</span></div>
+                            </div>
+                            <!-- Row 4 -->
+                            <div class="mini-keyboard-row">
+                                <div class="mini-key has-glyph"><span class="mini-key-label">Z</span><span
+                                        class="mini-glyph">z</span></div>
+                                <div class="mini-key has-glyph"><span class="mini-key-label">X</span><span
+                                        class="mini-glyph">x</span></div>
+                                <div class="mini-key has-glyph"><span class="mini-key-label">C</span><span
+                                        class="mini-glyph">c</span></div>
+                                <div class="mini-key"><span class="mini-key-label">V</span></div>
+                                <div class="mini-key has-glyph"><span class="mini-key-label">B</span><span
+                                        class="mini-glyph">b</span></div>
+                                <div class="mini-key"><span class="mini-key-label">N</span></div>
+                                <div class="mini-key"><span class="mini-key-label">M</span></div>
+                                <div class="mini-key"><span class="mini-key-label">,</span></div>
+                                <div class="mini-key"><span class="mini-key-label">.</span></div>
+                                <div class="mini-key"><span class="mini-key-label">/</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="design-panel">
+
+                        <!-- Text Size slider -->
+                        <div class="control-section">
+                            <div class="control-section-title">Design</div>
+                            <label class="axis-slider-label">Text Size</label>
+                            <input type="range" min="40" max="300" value="120" class="control-slider"
+                                id="text-size-slider">
+                        </div>
+
+                        <!-- Color controls -->
+                        <div class="control-section">
+                            <div class="color-section">
+                                <div class="color-toggle">
+                                    <button class="color-toggle-btn active" data-mode="foreground">Foreground</button>
+                                    <button class="color-toggle-btn" data-mode="background">Background</button>
+                                </div>
+                                <div class="color-picker-wrapper">
+                                    <input type="color" id="foreground-color" class="color-picker" value="#4B2234">
+                                    <input type="color" id="background-color" class="color-picker" value="#F6F6EA"
+                                        style="display: none;">
+                                </div>
+                                <div class="hex-display" id="hex-display">#4B2234</div>
+                            </div>
+                        </div>
+
+                        <!-- Variable Axis controls -->
+                        <div class="control-section">
+                            <div class="control-section-title">Variable Axis</div>
+                            <div class="axis-slider-group">
+                                <div class="axis-slider-item">
+                                    <label class="axis-slider-label">Twist</label>
+                                    <input type="range" min="0" max="100" value="0" class="axis-slider"
+                                        id="try-twist-slider">
+                                </div>
+                                <div class="axis-slider-item">
+                                    <label class="axis-slider-label">Radius</label>
+                                    <input type="range" min="0" max="100" value="100" class="axis-slider"
+                                        id="try-radius-slider">
+                                </div>
+                                <div class="axis-slider-item">
+                                    <label class="axis-slider-label">Weight</label>
+                                    <input type="range" min="0" max="100" value="50" class="axis-slider"
+                                        id="try-weight-slider">
+                                </div>
+                                <div class="axis-slider-item">
+                                    <label class="axis-slider-label">Amplitude</label>
+                                    <input type="range" min="0" max="100" value="0" class="axis-slider"
+                                        id="try-amplitude-slider">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -718,131 +828,217 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-    // Start spinning immediately on load
-    spinSlots();
-    
-    // Then continue spinning every 5 seconds
-    setInterval(spinSlots, 3000);
-});
+            // Start spinning immediately on load
+            spinSlots();
+
+            // Then continue spinning every 5 seconds
+            setInterval(spinSlots, 3000);
+        });
 
         // Variable font axis controls with play/pause
-document.addEventListener('DOMContentLoaded', () => {
-    const axes = [
-    {
-        name: 'twist',
-        slider: document.getElementById('twist-slider'),
-        text: document.getElementById('twist-text'),
-        value: document.getElementById('twist-value'),
-        playBtn: document.getElementById('twist-play'),
-        updateFn: (val) => `"TWST" ${val}, "RDUS" 100, "wght" 50, "AMPT" 0`,
-        isPlaying: false,
-        direction: 1,
-        currentValue: 0  // Matches value="0" in HTML
-    },
-    {
-        name: 'radius',
-        slider: document.getElementById('radius-slider'),
-        text: document.getElementById('radius-text'),
-        value: document.getElementById('radius-value'),
-        playBtn: document.getElementById('radius-play'),
-        updateFn: (val) => `"TWST" 0, "RDUS" ${val}, "wght" 50, "AMPT" 0`,
-        isPlaying: false,
-        direction: 1,
-        currentValue: 0  // Matches value="0" in HTML
-    },
-    {
-        name: 'weight',
-        slider: document.getElementById('weight-slider'),
-        text: document.getElementById('weight-text'),
-        value: document.getElementById('weight-value'),
-        playBtn: document.getElementById('weight-play'),
-        updateFn: (val) => `"TWST" 0, "RDUS" 100, "wght" ${val}, "AMPT" 0`,
-        isPlaying: false,
-        direction: 1,
-        currentValue: 0  // Matches value="0" in HTML
-    },
-    {
-        name: 'amplitude',
-        slider: document.getElementById('amplitude-slider'),
-        text: document.getElementById('amplitude-text'),
-        value: document.getElementById('amplitude-value'),
-        playBtn: document.getElementById('amplitude-play'),
-        updateFn: (val) => `"TWST" 0, "RDUS" 100, "wght" 0, "AMPT" ${val}`,
-        isPlaying: false,
-        direction: 1,
-        currentValue: 0  // Matches value="0" in HTML
-    }
-];
+        document.addEventListener('DOMContentLoaded', () => {
+            const axes = [
+                {
+                    name: 'twist',
+                    slider: document.getElementById('twist-slider'),
+                    text: document.getElementById('twist-text'),
+                    value: document.getElementById('twist-value'),
+                    playBtn: document.getElementById('twist-play'),
+                    updateFn: (val) => `"TWST" ${val}, "RDUS" 100, "wght" 50, "AMPT" 0`,
+                    isPlaying: false,
+                    direction: 1,
+                    currentValue: 0  // Matches value="0" in HTML
+                },
+                {
+                    name: 'radius',
+                    slider: document.getElementById('radius-slider'),
+                    text: document.getElementById('radius-text'),
+                    value: document.getElementById('radius-value'),
+                    playBtn: document.getElementById('radius-play'),
+                    updateFn: (val) => `"TWST" 0, "RDUS" ${val}, "wght" 50, "AMPT" 0`,
+                    isPlaying: false,
+                    direction: 1,
+                    currentValue: 0  // Matches value="0" in HTML
+                },
+                {
+                    name: 'weight',
+                    slider: document.getElementById('weight-slider'),
+                    text: document.getElementById('weight-text'),
+                    value: document.getElementById('weight-value'),
+                    playBtn: document.getElementById('weight-play'),
+                    updateFn: (val) => `"TWST" 0, "RDUS" 100, "wght" ${val}, "AMPT" 0`,
+                    isPlaying: false,
+                    direction: 1,
+                    currentValue: 0  // Matches value="0" in HTML
+                },
+                {
+                    name: 'amplitude',
+                    slider: document.getElementById('amplitude-slider'),
+                    text: document.getElementById('amplitude-text'),
+                    value: document.getElementById('amplitude-value'),
+                    playBtn: document.getElementById('amplitude-play'),
+                    updateFn: (val) => `"TWST" 0, "RDUS" 100, "wght" 0, "AMPT" ${val}`,
+                    isPlaying: false,
+                    direction: 1,
+                    currentValue: 0  // Matches value="0" in HTML
+                }
+            ];
 
-    function animateLoop() {
-    axes.forEach(axis => {
-        if (!axis.isPlaying) return;
+            function animateLoop() {
+                axes.forEach(axis => {
+                    if (!axis.isPlaying) return;
 
-        // Add easing factor
-        const distanceFromEdge = axis.direction === 1 ? (100 - axis.currentValue) : axis.currentValue;
-        const easeFactor = Math.max(0.7, Math.min(1, distanceFromEdge / 20)); // Slow down near edges
-        
-        axis.currentValue += axis.direction * 1 * easeFactor;
+                    // Add easing factor
+                    const distanceFromEdge = axis.direction === 1 ? (100 - axis.currentValue) : axis.currentValue;
+                    const easeFactor = Math.max(0.7, Math.min(1, distanceFromEdge / 20)); // Slow down near edges
 
-        // Bounce at ends
-        if (axis.currentValue >= 100) {
-            axis.currentValue = 100;
-            axis.direction = -1;
-        } else if (axis.currentValue <= 0) {
-            axis.currentValue = 0;
-            axis.direction = 1;
-        }
+                    axis.currentValue += axis.direction * 1 * easeFactor;
 
-        axis.slider.value = axis.currentValue;
-        axis.value.textContent = Math.round(axis.currentValue);
-        axis.text.style.fontVariationSettings = axis.updateFn(axis.currentValue);
-    });
+                    // Bounce at ends
+                    if (axis.currentValue >= 100) {
+                        axis.currentValue = 100;
+                        axis.direction = -1;
+                    } else if (axis.currentValue <= 0) {
+                        axis.currentValue = 0;
+                        axis.direction = 1;
+                    }
 
-    requestAnimationFrame(animateLoop);
-}
+                    axis.slider.value = axis.currentValue;
+                    axis.value.textContent = Math.round(axis.currentValue);
+                    axis.text.style.fontVariationSettings = axis.updateFn(axis.currentValue);
+                });
 
-    function stopAnimation(axis) {
-        axis.isPlaying = false;
-        axis.playBtn.textContent = '▶';
-        axis.playBtn.classList.remove('playing');
-    }
-
-    function startAnimation(axis) {
-        axis.isPlaying = true;
-        axis.playBtn.textContent = '⏸';
-        axis.playBtn.classList.add('playing');
-    }
-
-    axes.forEach(axis => {
-        // Play/pause button
-        axis.playBtn.addEventListener('click', () => {
-            if (axis.isPlaying) {
-                stopAnimation(axis);
-            } else {
-                startAnimation(axis);
+                requestAnimationFrame(animateLoop);
             }
+
+            function stopAnimation(axis) {
+                axis.isPlaying = false;
+                axis.playBtn.textContent = '▶';
+                axis.playBtn.classList.remove('playing');
+            }
+
+            function startAnimation(axis) {
+                axis.isPlaying = true;
+                axis.playBtn.textContent = '⏸';
+                axis.playBtn.classList.add('playing');
+            }
+
+            axes.forEach(axis => {
+                // Play/pause button
+                axis.playBtn.addEventListener('click', () => {
+                    if (axis.isPlaying) {
+                        stopAnimation(axis);
+                    } else {
+                        startAnimation(axis);
+                    }
+                });
+
+                // Slider input - pause on interaction
+                axis.slider.addEventListener('mousedown', () => {
+                    stopAnimation(axis);
+                });
+
+                axis.slider.addEventListener('input', (e) => {
+                    const value = parseFloat(e.target.value);
+                    axis.currentValue = value;
+                    axis.value.textContent = Math.round(value);
+                    axis.text.style.fontVariationSettings = axis.updateFn(value);
+                });
+
+                // Initialize
+                axis.text.style.fontVariationSettings = axis.updateFn(axis.currentValue);
+                startAnimation(axis);
+            });
+
+            // Start the animation loop
+            animateLoop();
         });
 
-        // Slider input - pause on interaction
-        axis.slider.addEventListener('mousedown', () => {
-            stopAnimation(axis);
+
+        // Try It Yourself - Interactive Canvas
+        document.addEventListener('DOMContentLoaded', () => {
+            const canvasText = document.getElementById('canvas-text');
+            const canvasContainer = document.querySelector('.canvas-container');
+            const textSizeSlider = document.getElementById('text-size-slider');
+            const twistSlider = document.getElementById('try-twist-slider');
+            const radiusSlider = document.getElementById('try-radius-slider');
+            const weightSlider = document.getElementById('try-weight-slider');
+            const amplitudeSlider = document.getElementById('try-amplitude-slider');
+            const foregroundColorPicker = document.getElementById('foreground-color');
+            const backgroundColorPicker = document.getElementById('background-color');
+            const hexDisplay = document.getElementById('hex-display');
+            const colorToggleBtns = document.querySelectorAll('.color-toggle-btn');
+
+            let currentColorMode = 'foreground';
+            let twist = 0, radius = 100, weight = 50, amplitude = 0;
+
+            // Update font variation settings
+            function updateFontVariation() {
+                canvasText.style.fontVariationSettings = `"TWST" ${twist}, "RDUS" ${radius}, "wght" ${weight}, "AMPT" ${amplitude}`;
+            }
+
+            // Text size control (1:1 with line-height)
+            textSizeSlider.addEventListener('input', (e) => {
+                const size = e.target.value;
+                canvasText.style.fontSize = `${size}px`;
+                canvasText.style.lineHeight = '1';
+            });
+
+            // Variable axis controls
+            twistSlider.addEventListener('input', (e) => {
+                twist = parseFloat(e.target.value);
+                updateFontVariation();
+            });
+
+            radiusSlider.addEventListener('input', (e) => {
+                radius = parseFloat(e.target.value);
+                updateFontVariation();
+            });
+
+            weightSlider.addEventListener('input', (e) => {
+                weight = parseFloat(e.target.value);
+                updateFontVariation();
+            });
+
+            amplitudeSlider.addEventListener('input', (e) => {
+                amplitude = parseFloat(e.target.value);
+                updateFontVariation();
+            });
+
+            // Color mode toggle
+            colorToggleBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    colorToggleBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentColorMode = btn.dataset.mode;
+
+                    if (currentColorMode === 'foreground') {
+                        foregroundColorPicker.style.display = 'block';
+                        backgroundColorPicker.style.display = 'none';
+                        hexDisplay.textContent = foregroundColorPicker.value.toUpperCase();
+                    } else {
+                        foregroundColorPicker.style.display = 'none';
+                        backgroundColorPicker.style.display = 'block';
+                        hexDisplay.textContent = backgroundColorPicker.value.toUpperCase();
+                    }
+                });
+            });
+
+            // Foreground color picker
+            foregroundColorPicker.addEventListener('input', (e) => {
+                canvasText.style.color = e.target.value;
+                hexDisplay.textContent = e.target.value.toUpperCase();
+            });
+
+            // Background color picker
+            backgroundColorPicker.addEventListener('input', (e) => {
+                canvasContainer.style.background = e.target.value;
+                hexDisplay.textContent = e.target.value.toUpperCase();
+            });
+
+            // Initialize
+            updateFontVariation();
         });
-
-        axis.slider.addEventListener('input', (e) => {
-            const value = parseFloat(e.target.value);
-            axis.currentValue = value;
-            axis.value.textContent = Math.round(value);
-            axis.text.style.fontVariationSettings = axis.updateFn(value);
-        });
-
-        // Initialize
-        axis.text.style.fontVariationSettings = axis.updateFn(axis.currentValue);
-        startAnimation(axis);
-    });
-
-    // Start the animation loop
-    animateLoop();
-});
 
     </script>
 
