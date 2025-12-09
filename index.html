@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tangent - A Variable Font System</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
     <script>
         // Scroll progress indicator
         document.addEventListener('DOMContentLoaded', function () {
@@ -17,8 +18,8 @@
             const sectionGroups = [
                 [0], // Hero
                 [1, 2], // Transformation (intro + axes + specimen)
-                [3, 4, 5, 6, 7], // Connection (intro + keyboard + glyphset + typing)
-                [8, 9, 10], // Generation (intro + processing + posters)
+                [3, 4, 5], // Connection (intro + keyboard + glyphset + typing)
+                [6, 7], // Generation (intro + processing + posters)
                 [11, 12, 13, 14], // Variability (intro + alphabet + axes + typing)
                 [15, 16, 17, 18, 19], // Specimen (intro + 3 versions + context)
                 [20, 21] // Download + specs
@@ -530,15 +531,14 @@
     </section>
 
     <!-- [4] GENERATION INTRO -->
-    <!-- <section class="section bg-linen">
+    <section class="section bg-green">
         <div class="centered-layout">
-            <div class="section-label">[4] GENERATION</div>
             <h2 class="section-title">Endless Permutations</h2>
             <p class="section-subtitle">
                 Interactive tools for creating complex pathway systems. Click, drag, and generate infinite variations.
             </p>
         </div>
-    </section> -->
+    </section>
 
     <!-- [4a] PROCESSING SKETCH -->
     <!-- <section class="section full-height bg-dark">
@@ -550,6 +550,11 @@
             </div>
         </div>
     </section> -->
+
+    <!-- [4a] PROCESSING SKETCH -->
+<section class="section full-height bg-white">
+    <div id="p5-container"></div>
+</section>
 
     <!-- [4b] ANIMATED POSTERS -->
     <!-- <section class="section bg-light-yellow">
@@ -1186,9 +1191,9 @@
 
             updateFontVariation();
         });
-
-
     </script>
+
+    <script src="sketch.js"></script>
 
 </body>
 
